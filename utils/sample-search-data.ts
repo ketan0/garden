@@ -1,5 +1,7 @@
 /** Dummy user data. */
 export const sampleSearchData = [
-  "this is a search result",
-  "this is another search result"
+  {
+    title: "Timeful texts",
+    contents: "Texts that repeatedly pop up over and over again."
+  }
 ]
