@@ -5,7 +5,6 @@ import Neo4jDriver from '../../utils/neo4j-driver'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const id = req.query.atomId as string
-    console.log(`id in handler: ${id}`)
     const { records } = await Neo4jDriver.run(
       'MATCH (atom:Atom {id: $id}) RETURN atom.id, atom.title, atom.contents',
       { id }
@@ -29,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       'MATCH (atom:Atom {id: $id})<-[:CHILD_OF]-(child) RETURN child.id, child.title, child.contents',
       { id }
     )
-    const childRecordsClean = childRecords.map((record: Map<string, string>) => ({
+    const childRecordsClean = childRecords.map((record) => ({
       id: record.get('child.id'),
       title: record.get('child.title'),
       contents: record.get('child.contents')
