@@ -43,9 +43,7 @@ const useForceGraph = <
   const { ref, width = 200, height = 200 } = useResizeObserver<HTMLDivElement>()
   const fullyDefinedProps = applyDefaults(props)
   const { nodesData, linksData, idAccessor, linkDistance, chargeStrength } = fullyDefinedProps
-  if (linksData.length) console.log('linksData is defined out here')
   useEffect(() => {
-    if (linksData.length) console.log('linksData is defined in here')
     if (!nodesData.length || !linksData.length) return;
     const simulation = forceSimulation<NodeDatum, LinkDatum>(nodesData)
       .force("link", forceLink<NodeDatum, LinkDatum>(linksData)

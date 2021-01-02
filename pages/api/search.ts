@@ -19,7 +19,7 @@ RETURN n.id as id, n.title as title, n.contents as contents LIMIT 100`,
     }))
     res.status(200).json(recordsClean)
   } catch (err) {
-    console.log(err.message)
+    console.error(err.message)
     res.status(500).json({ statusCode: 500, message: err.message })
   }
 }

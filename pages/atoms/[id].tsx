@@ -18,8 +18,6 @@ const AtomPage = () => {
         const results = await axios.get('/api/getAtomAndChildren', {
           params: { atomId: id }
         })
-        // console.log('results:')
-        // console.log(JSON.stringify(results, undefined, 2))
         if (results.status != 200) {
           console.error(results.data.message)
         } else {
@@ -37,7 +35,6 @@ const AtomPage = () => {
   }, [id])
 
 
-  // console.log(`id in page: ${id}`)
   return (
     <div>
       <Nav />
